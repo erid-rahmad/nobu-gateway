@@ -1,0 +1,19 @@
+server:
+  port: 8080
+#  ssl:
+#    key-store-type: PKCS12
+#    enabled: false
+#    key-alias: tomcat
+#    key-store: "src/main/resources/keystore.p12"
+#    key-store-password: "123123"
+
+logging:
+  level:
+    org.apache.kafka: OFF
+    org.springframework: INFO
+    com.mpc.sipd: DEBUG
+  pattern:
+    console: "%d{dd-MM-yyyy HH:mm:ss} %5p %c{1}:%L - %m%n"
+    file: "%d{dd-MM-yyyy HH:mm:ss} %5p %c{1}:%L - %m%n"
+  file:
+    name: ${LOG_LOCATION:./logs/transaction.log}
