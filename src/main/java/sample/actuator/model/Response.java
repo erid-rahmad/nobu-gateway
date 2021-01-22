@@ -1,20 +1,26 @@
 package sample.actuator.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.Entity;
-import javax.security.sasl.SaslServer;
-import java.sql.Time;
+
+import java.time.LocalDateTime;
 
 
+@Transactional
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class Response {
 
-    private Time time;
-    private String idclient;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime time;
+    private String clientid;
     private String key;
     private String branchid;
     private String counterid;

@@ -1,6 +1,7 @@
 package sample.actuator.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -33,9 +34,12 @@ public class Request {
     private String counterid;
     private String producttype;
     private String trxtype ;
+    @JsonIgnore
+    private String trxconfirm;
 
-//    @OneToOne(fetch= FetchType.LAZY)
-//    private RequestDetails requestDetails;
+
+    @OneToOne(fetch= FetchType.LAZY)
+    private RequestDetails requestDetails;
 
 
 }

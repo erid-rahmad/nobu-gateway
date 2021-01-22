@@ -7,6 +7,11 @@ server:
 #    key-store: "src/main/resources/keystore.p12"
 #    key-store-password: "123123"
 
+spring:
+  h2:
+    console:
+      enabled: true
+
 logging:
   level:
     org.apache.kafka: OFF
