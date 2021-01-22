@@ -11,7 +11,7 @@ logging:
   level:
     org.apache.kafka: OFF
     org.springframework: INFO
-    com.mpc.sipd: DEBUG
+    sample.actuator: DEBUG
   pattern:
     console: "%d{dd-MM-yyyy HH:mm:ss} %5p %c{1}:%L - %m%n"
     file: "%d{dd-MM-yyyy HH:mm:ss} %5p %c{1}:%L - %m%n"

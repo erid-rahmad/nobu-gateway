@@ -4,25 +4,38 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
+import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 
-@Data
+
+@Entity
+@Transactional
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 
 public class Request {
 
-//    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private LocalDateTime time;
     private String clientid;
     private String key;
     private String branchid;
     private String counterid;
     private String producttype;
-    private RequestDetails requestDetails;
     private String trxtype ;
+
+//    @OneToOne(fetch= FetchType.LAZY)
+//    private RequestDetails requestDetails;
+
 
 }

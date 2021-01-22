@@ -21,16 +21,19 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import sample.actuator.model.Request;
 import sample.actuator.model.RequestDetails;
+import sample.actuator.utils.MapperJSONUtil;
 
 @Controller
 @RequestMapping("api/v1")
 @Slf4j
 public class ReqController {
+
 
 	@GetMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
@@ -49,23 +52,7 @@ public class ReqController {
 	@PostMapping(value = "/cashout")
 	@ResponseBody
 	public Request getrequest(@RequestBody Request request1) {
-		log.info("this req {}",request1);
-		Request request = new Request();
-		RequestDetails requestDetails = new RequestDetails();
-
-		requestDetails.setNohp("143124124");
-		requestDetails.setToken("asdaas");
-		request.setBranchid("qwe");
-		request.setKey("asdasd");
-		request.setRequestDetails(requestDetails);
-
-		LocalDateTime myDateObj = LocalDateTime.now();
-		System.out.println("Before formatting: " + myDateObj);
-		DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-
-		String formattedDate = myDateObj.format(myFormatObj);
-		System.out.println("After formatting: " + formattedDate);
-
+		log.info("this req {}",MapperJSONUtil.prettyLog(request1));
 		return request1;
 
 	}
